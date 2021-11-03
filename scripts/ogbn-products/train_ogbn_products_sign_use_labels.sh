@@ -1,6 +1,6 @@
-pretrain_path=../../../proc_data_xrt/ogbn-arxiv/X.all.xrt-emb.npy
+pretrain_path=../../proc_data_xrt/ogbn-arxiv/X.all.xrt-emb.npy
 mlp_layer=1
-data_root_dir=../../../datasets
+data_root_dir=../../datasets
 
 cd "$(dirname $0)" 
 if [ ! -n "$1" ] ; then
