@@ -36,6 +36,5 @@ python -u ../../src/sagn.py \
     --mlp-layer $mlp_layer \
     --data_root_dir $data_root_dir \
     --pretrain_path $pretrain_path \
-    
     | tee -a ./LOGS/${hidden_channels}.${mlp_layer}.${K}.Ptrn.uselabels.log &
     
