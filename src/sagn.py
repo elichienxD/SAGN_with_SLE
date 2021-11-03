@@ -390,6 +390,7 @@ def define_parser():
 if __name__ == "__main__":
     parser = define_parser()
     args = parser.parse_args()
+    args.data_dir = args.data_root_dir
     print(args)
     main(args)
 
