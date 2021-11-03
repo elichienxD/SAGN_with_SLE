@@ -197,7 +197,7 @@ def main(args):
                     probs_path = os.path.join(args.probs_dir, 
                                               args.dataset, 
                                               args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                                              f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.pt')
+                                              f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.pt')
                     print(probs_path)
                     if os.path.exists(probs_path):
                         print(f"bypass stage {stage} since warmup_stage is set and associated file exists.")
@@ -207,7 +207,7 @@ def main(args):
             if stage > 0:
                 probs_path = os.path.join(args.probs_dir, args.dataset, 
                                 args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                                f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage - 1}_pretrain_{not args.pretrain_path == 'None'}.pt')
+                                f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage - 1}_pretrain_{args.pretrain_path == 'None'}.pt')
             else:
                 probs_path = ''
 
@@ -223,7 +223,7 @@ def main(args):
             val_losses.append(val_loss)
             new_probs_path = os.path.join(args.probs_dir, args.dataset, 
                                 args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                                f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.pt')
+                                f'use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_probs_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.pt')
             if not os.path.exists(os.path.dirname(new_probs_path)):
                 os.makedirs(os.path.dirname(new_probs_path))
             torch.save(probs, new_probs_path)
@@ -232,7 +232,7 @@ def main(args):
 
             path = os.path.join("../converge_stats", args.dataset, 
                                 args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                                f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.csv")
+                                f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.csv")
             if not os.path.exists(os.path.dirname(path)):
                 os.makedirs(os.path.dirname(path))
             # print(val_acc)
@@ -242,7 +242,7 @@ def main(args):
             df.to_csv(path)
             fig_path = os.path.join("../converge_stats", args.dataset, 
                         args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                        f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.png")
+                        f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.png")
             sns.set()
             line_plt = sns.lineplot(data=df, x='epoch', y='val_acc')
             line = line_plt.get_figure()
@@ -251,7 +251,7 @@ def main(args):
 
             path = os.path.join("../converge_stats", args.dataset, 
                                 args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                                f"val_loss_use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.csv")
+                                f"val_loss_use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.csv")
             if not os.path.exists(os.path.dirname(path)):
                 os.makedirs(os.path.dirname(path))
             # print(val_loss)
@@ -261,7 +261,7 @@ def main(args):
             df.to_csv(path)
             fig_path = os.path.join("../converge_stats", args.dataset, 
                         args.model if (args.weight_style == "attention") else (args.model + "_" + args.weight_style),
-                        f"val_loss_use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.png")
+                        f"val_loss_use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.png")
             sns.set()
             line_plt = sns.lineplot(data=df, x='epoch', y='val_loss')
             line = line_plt.get_figure()
@@ -270,13 +270,13 @@ def main(args):
             
             if (args.model in ["sagn", "plain_sagn"] and args.weight_style=="attention") and (not args.avoid_features):
                 path = os.path.join("../attn_weights", args.dataset, args.model,
-                    f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.csv")
+                    f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.csv")
                 if not os.path.exists(os.path.dirname(path)):
                     os.makedirs(os.path.dirname(path))
                 df = pd.DataFrame(data=attn_weights.cpu().numpy())
                 df.to_csv(path)
                 fig_path = os.path.join("../attn_weights", args.dataset, args.model,
-                    f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{not args.pretrain_path == 'None'}.png")
+                    f"use_labels_{args.use_labels}_use_feats_{not args.avoid_features}_K_{args.K}_label_K_{args.label_K}_seed_{args.seed + i}_stage_{stage}_pretrain_{args.pretrain_path == 'None'}.png")
                 sns.set()
                 heatmap_plt = sns.heatmap(df)
                 heatmap = heatmap_plt.get_figure()
