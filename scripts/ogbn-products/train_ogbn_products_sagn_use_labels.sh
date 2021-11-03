@@ -1,5 +1,7 @@
-pretrain_path=../../../proc_data_xrt/ogbn-arxiv/X.all.xrt-emb.npy
+hidden_channels=256
 mlp_layer=1
+K=5
+pretrain_path=../../../proc_data_xrt/ogbn-arxiv/X.all.xrt-emb.npy
 data_root_dir=../../../datasets
 
 cd "$(dirname $0)" 
@@ -12,22 +14,22 @@ echo "gpu: $gpu"
 python -u ../../src/sagn.py \
     --dataset ogbn-products \
     --gpu $gpu \
-    --aggr-gpu $gpu \
+    --aggr-gpu -1 \
     --model sagn \
     --seed 0 \
     --num-runs 10 \
     --threshold 0.95 \
-    --epoch-setting 1000 500 500 \
+    --epoch-setting 500 200 200 \
     --lr 0.001 \
     --batch-size 50000 \
-    --num-hidden 512 \
+    --num-hidden $hidden_channels \
     --num-heads 1 \
     --dropout 0.5 \
     --attn-drop 0.4 \
     --input-drop 0.2 \
     --label-drop 0.5 \
-    --K 3 \
-    --label-K 14 \
+    --K ${K} \
+    --label-K 9 \
     --use-labels \
     --weight-decay 0 \
     --warmup-stage -1 \
