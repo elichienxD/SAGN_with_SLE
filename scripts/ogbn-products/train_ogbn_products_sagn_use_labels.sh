@@ -1,3 +1,7 @@
+pretrain_path=../../../proc_data_xrt/ogbn-arxiv/X.all.xrt-emb.npy
+mlp_layer=1
+data_root_dir=../../../datasets
+
 cd "$(dirname $0)" 
 if [ ! -n "$1" ] ; then
     gpu="0"
@@ -26,4 +30,10 @@ python -u ../../src/sagn.py \
     --label-K 14 \
     --use-labels \
     --weight-decay 0 \
-    --warmup-stage -1
+    --warmup-stage -1 \
+    --mlp-layer $mlp_layer \
+    --data_root_dir $data_root_dir \
+    --pretrain_path $pretrain_path \
+    
+    | tee -a ./LOGS/${hidden_channels}.${mlp_layer}.${K}.Ptrn.uselabels.log &
+    
