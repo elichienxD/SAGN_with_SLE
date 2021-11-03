@@ -166,7 +166,12 @@ def load_dataset(device, args):
         
         else:
             g.ndata['feat'] = g.ndata['feat'].float()
-
+            
+            # My modification start here
+            if args.pretrain_path is not 'None':
+                g.ndata['feat'] = torch.tensor(np.load(args.pretrain_path)).float().to(device)
+                print("Pretrained node feature loaded! Path: {}".format(args.pretrain_path))
+         
         labels = labels.squeeze()
 
     evaluator = get_evaluator(args.dataset)
