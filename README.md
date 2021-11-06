@@ -35,7 +35,7 @@ SAGN+SLE (stage 2 result):
 * Number of params: 1548382
 
 
-For more details about RevGAT, please check the original README below.
+For more details about SAGN, please check the original README.
 
 ## Citation
 If you find our code useful, please cite both our GIANT paper and the SAGN references provided in the original repo.
