@@ -1,8 +1,8 @@
 hidden_channels=256
 mlp_layer=1
 K=5
-pretrain_path=../proc_data_xrt/ogbn-products/X.all.xrt-emb.npy
-data_root_dir=../dataset
+pretrain_path=../../proc_data_xrt/ogbn-products/X.all.xrt-emb.npy
+data_root_dir=../../dataset
 
 cd "$(dirname $0)" 
 if [ ! -n "$1" ] ; then
@@ -36,5 +36,5 @@ python -u ./src/sagn.py \
     --mlp-layer $mlp_layer \
     --data_root_dir $data_root_dir \
     --pretrain_path $pretrain_path \
-    |& tee ./LOGS/${hidden_channels}.${mlp_layer}.${K}.Ptrn.uselabels.log
+    |& tee ./${hidden_channels}.${mlp_layer}.${K}.Ptrn.uselabels.log
     
