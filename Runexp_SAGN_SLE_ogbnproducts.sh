@@ -1,8 +1,8 @@
 hidden_channels=256
 mlp_layer=1
 K=5
-pretrain_path=/data/shared/eli/GIANT/pecos/examples/giant-xrt/proc_data_xrt/ogbn-products/X.all.xrt-emb.npy
-data_root_dir=/data/shared/eli/GIANT/pecos/examples/giant-xrt/dataset
+pretrain_path=../proc_data_xrt/ogbn-products/X.all.xrt-emb.npy
+data_root_dir=../dataset
 
 cd "$(dirname $0)" 
 if [ ! -n "$1" ] ; then
@@ -11,7 +11,7 @@ else
     gpu="$1"
 fi
 echo "gpu: $gpu"
-python -u ../../src/sagn.py \
+python -u ./src/sagn.py \
     --dataset ogbn-products \
     --gpu $gpu \
     --aggr-gpu -1 \
