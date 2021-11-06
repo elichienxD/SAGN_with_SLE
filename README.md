@@ -34,7 +34,7 @@ SAGN+SLE (stage 2 result):
 * Average test accuracy: 85.76 ± 0.26
 * Number of params: 1548382
 
-**Remark:** We do not fine-tune SAGN hard for our GIANT-XRT. It is possible to achieve higher performance by carefully fine-tune it. Also, the authors of SAGN have a new hyperparameter setting with slightly higher accuracy compare to their original OGB submission. See their setting in the script `script/train_ogbn_products_sagn_use_labels_morestages.sh`.
+**Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully. Also, the authors of SAGN have a new hyperparameter setting with slightly higher accuracy compare to their original OGB submission. See their setting in the script `script/train_ogbn_products_sagn_use_labels_morestages.sh`. We do not test it and we stick with the setting of their original OGB submission (correspond to the script `script/train_ogbn_products_sagn_use_labels.sh`).
 
 For more details about SAGN, please check the original README.
 
