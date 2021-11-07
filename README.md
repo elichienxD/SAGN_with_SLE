@@ -12,7 +12,15 @@ After following the steps in [[GIANT]](https://github.com/amzn/pecos/tree/mainli
 Then git clone this repo in the folder `giant-xrt` directly.
 
 ## Step 2: Install additional packages.
-If you install and run GIANT correctly, you should only need to additionally install [dgl>=0.5.3](https://github.com/dmlc/dgl).
+If you install and run GIANT correctly, you should only need to additionally install [dgl>=0.5.3](https://github.com/dmlc/dgl). See [here](https://www.dgl.ai/pages/start.html) for pip/conda installation instruction for dgl.
+
+Please also install the following packages
+```
+pip install matplotlib
+pip install seaborn
+```
+
+These two packages are inherent in the code of SAGN.
 
 ## Step 3: Run the experiment.
 Go to the folder `SAGN_with_SLE`.
