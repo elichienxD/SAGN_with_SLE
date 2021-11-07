@@ -25,7 +25,7 @@ These two packages are inherent in the code of SAGN.
 ## Step 3: Run the experiment.
 Go to the folder `SAGN_with_SLE`.
 
-Run `Runexp_SAGN_SLE_ogbnproducts.sh` for reproducing our results for ogbn-products dataset with GIANT-XRT features.
+Run `Runexp_SAGN_SLE_ogbnproducts.sh`(SAGN+SLE original) for reproducing our results for ogbn-products dataset with GIANT-XRT features.
 
 ```
 New arguments
@@ -37,12 +37,26 @@ New arguments
 ## Results
 If execute correctly, you should have the following performance (using our pretrained GIANT-XRT features).
 
-SAGN+SLE (stage 2 result):
-* Average val accuracy: 93.72 ± 0.02
-* Average test accuracy: 85.76 ± 0.26
+**(SAGN+SLE original)**
+SAGN+SLE (stage 0 result):
+* Average val accuracy: 93.79±0.04
+* Average test accuracy: 84.45±0.12
 * Number of params: 1548382
 
-**Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully. Also, the authors of SAGN have a new hyperparameter setting with slightly higher accuracy compare to their original OGB submission. See their setting in the script `script/train_ogbn_products_sagn_use_labels_morestages.sh`. We do not test it and we stick with the setting of their original OGB submission (correspond to the script `script/train_ogbn_products_sagn_use_labels.sh`).
+SAGN+SLE (stage 1 result):
+* Average val accuracy: 93.62±0.06
+* Average test accuracy: 85.46±0.12
+* Number of params: 1548382
+
+SAGN+SLE (stage 2 result):
+* Average val accuracy: 93.54±0.05
+* Average test accuracy: 85.99±0.11
+* Number of params: 1548382
+
+**(SAGN+SLE morestages)**
+TBD
+
+**Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully.
 
 For more details about SAGN, please check the original README.
 
