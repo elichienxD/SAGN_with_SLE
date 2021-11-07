@@ -27,6 +27,8 @@ Go to the folder `SAGN_with_SLE`.
 
 Run `Runexp_SAGN_SLE_ogbnproducts.sh`(SAGN+SLE original) for reproducing our results for ogbn-products dataset with GIANT-XRT features.
 
+Run `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`(SAGN+SLE morestages) for the new setting provided in the SAGN repo.
+
 ```
 New arguments
 
