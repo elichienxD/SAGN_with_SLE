@@ -41,11 +41,15 @@ If execute correctly, you should have the following performance (using our pretr
 
 | SAGN+SLE (original) | stage 0 | stage 1 | stage 2 |
 |---|---|---|---|
-| Average val accuracy | 93.79±0.04 | 93.62±0.06 | 93.54±0.05 |
-| Average test accuracy | 84.45±0.12 | 85.46±0.12 | 85.99±0.11 |
+| Average val accuracy (%) | 93.79±0.04 | 93.62±0.06 | 93.54±0.05 |
+| Average test accuracy (%) | 84.45±0.12 | 85.46±0.12 | 85.99±0.11 |
 
 **(SAGN+SLE morestages)** Number of params: 1548382
-TBD
+
+| SAGN+SLE (morestages) | stage 0 | stage 1 | stage 2 | stage 3 | +C&S |
+|---|---|---|---|---|---|
+| Average val accuracy (%) | 93.78±0.05 | 93.64±0.05 | 93.53±0.02 | 93.63±0.05 |  |
+| Average test accuracy (%) | 84.53±0.18 | 85.43±0.22 | 85.96±0.22 | 86.22±0.22 |  |
 
 **Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully.
 
