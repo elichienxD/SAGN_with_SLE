@@ -132,11 +132,14 @@ def define_parser():
                         help="Whether to use autoscale in Correction operation")
     parser.add_argument("--operations", type=str, nargs="+", default=["correction", "smoothing"], 
                         help="Select operations needed")
+    parser.add_argument('--data_root_dir', type=str, default='../../dataset')
+    parser.add_argument('--pretrain_path', type=str, default='None')
     return parser
 
 
 if __name__ == "__main__":
     parser = define_parser()
     args = parser.parse_args()
+    args.data_dir = args.data_root_dir
     print(args)
     main(args)
