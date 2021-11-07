@@ -16,21 +16,22 @@ python -u src/sagn.py \
     --seed 0 \
     --num-runs 10 \
     --threshold 0.95 0.95 0.999 \
-    --epoch-setting 1000 500 500 500\
+    --epoch-setting 300 100 100 100\
     --lr 0.001 \
     --zero-inits \
     --batch-size 50000 \
-    --num-hidden 512 \
+    --num-hidden 256 \
     --num-heads 1 \
     --dropout 0.5 \
     --attn-drop 0.4 \
     --input-drop 0.2 \
     --label-drop 0.5 \
     --K 3 \
-    --label-K 14 \
+    --label-K 9 \
     --use-labels \
     --weight-decay 0 \
     --warmup-stage -1 \
+    --mlp-layer 1 \
     --data_root_dir $data_root_dir \
     --pretrain_path $pretrain_path \
-    |& tee ./${hidden_channels}.${mlp_layer}.${K}.Ptrn.uselabels.morestage.log
+    |& tee ./Default.Ptrn.uselabels.morestage.log
