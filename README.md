@@ -29,6 +29,8 @@ Run `Runexp_SAGN_SLE_ogbnproducts.sh`(SAGN+SLE original) for reproducing our res
 
 Run `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`(SAGN+SLE morestages) for the new setting provided in the SAGN repo.
 
+For the "+C&S" result, run 'Runexp_postprocess_CnS.sh' after running `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`.
+
 ```
 New arguments
 
@@ -50,8 +52,8 @@ If execute correctly, you should have the following performance (using our pretr
 
 | SAGN+SLE (morestages) | stage 0 | stage 1 | stage 2 | stage 3 | +C&S |
 |---|---|---|---|---|---|
-| Average val accuracy (%) | 93.78±0.05 | 93.64±0.05 | 93.53±0.02 | 93.63±0.05 |  |
-| Average test accuracy (%) | 84.53±0.18 | 85.43±0.22 | 85.96±0.22 | 86.22±0.22 |  |
+| Average val accuracy (%) | 93.78±0.05 | 93.64±0.05 | 93.53±0.02 | 93.63±0.05 | 93.52±0.05 |
+| Average test accuracy (%) | 84.53±0.18 | 85.43±0.22 | 85.96±0.22 | 86.22±0.22 | 86.43±0.20 |
 
 **Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully.
 
