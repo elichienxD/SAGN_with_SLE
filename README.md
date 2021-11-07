@@ -29,7 +29,7 @@ Run `Runexp_SAGN_SLE_ogbnproducts.sh`(SAGN+SLE original) for reproducing our res
 
 Run `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`(SAGN+SLE morestages) for the new setting provided in the SAGN repo.
 
-For the "+C&S" result, run 'Runexp_postprocess_CnS.sh' after running `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`.
+For the "+C&S" result, run `Runexp_postprocess_CnS.sh` after running `Runexp_SAGN_SLE_ogbnproducts_morestages.sh`.
 
 ```
 New arguments
