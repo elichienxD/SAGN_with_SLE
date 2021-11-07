@@ -37,23 +37,14 @@ New arguments
 ## Results
 If execute correctly, you should have the following performance (using our pretrained GIANT-XRT features).
 
-**(SAGN+SLE original)**
-SAGN+SLE (stage 0 result):
-* Average val accuracy: 93.79±0.04
-* Average test accuracy: 84.45±0.12
-* Number of params: 1548382
+**(SAGN+SLE original)** Number of params: 1548382
 
-SAGN+SLE (stage 1 result):
-* Average val accuracy: 93.62±0.06
-* Average test accuracy: 85.46±0.12
-* Number of params: 1548382
+| SAGN+SLE (original) | stage 0 | stage 1 | stage 2 |
+|---|---|---|---|
+| Average val accuracy | 93.79±0.04 | 93.62±0.06 | 93.54±0.05 |
+| Average test accuracy | 84.45±0.12 | 85.46±0.12 | 85.99±0.11 |
 
-SAGN+SLE (stage 2 result):
-* Average val accuracy: 93.54±0.05
-* Average test accuracy: 85.99±0.11
-* Number of params: 1548382
-
-**(SAGN+SLE morestages)**
+**(SAGN+SLE morestages)** Number of params: 1548382
 TBD
 
 **Remark:** We only slightly fine-tune SAGN for our GIANT-XRT. It is possible to achieve higher performance by fine-tune it more carefully.
