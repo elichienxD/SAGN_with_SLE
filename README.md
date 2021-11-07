@@ -60,7 +60,7 @@ If execute correctly, you should have the following performance (using our pretr
 For more details about SAGN, please check the original README.
 
 ## Citation
-If you find our code useful, please cite both our GIANT paper and the SAGN references provided in the original repo.
+If you find our code useful, please cite both our GIANT paper and the SAGN references provided in the original repo. Also, if you leverage C&S method, please also cite it.
 
 Our GIANT paper:
 ```
@@ -80,6 +80,19 @@ SAGN paper:
   author={Sun, Chuxiong and Wu, Guoshi},
   journal={arXiv preprint arXiv:2104.09376},
   year={2021}
+}
+```
+
+C&S paper:
+
+```
+@inproceedings{
+huang2021combining,
+title={Combining Label Propagation and Simple Models out-performs Graph Neural Networks},
+author={Qian Huang and Horace He and Abhay Singh and Ser-Nam Lim and Austin Benson},
+booktitle={International Conference on Learning Representations},
+year={2021},
+url={https://openreview.net/forum?id=8E1-f3VhX1o}
 }
 ```
 
